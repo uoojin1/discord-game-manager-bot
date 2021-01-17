@@ -41,7 +41,7 @@ client.on('message', (message) => {
 
         switch (COMMAND_NAME) {
             case COMMANDS.SPLIT_TEAMS: {
-                const voiceChannel = message.guild.channels.cache.get('800190570990665752')
+                const voiceChannel = message.guild.channels.cache.get('797302100849721382')
                 const membersInChannel = [...voiceChannel.members.values()]
                     .filter(member => member.presence.status === 'online' && !member.user.bot)
                     .map(member => member.user)
@@ -60,10 +60,13 @@ client.on('message', (message) => {
                     )
                     .setTimestamp()
                     .setFooter(`${isAdminInTeam1 ? '청팀' : '백팀'} 이겨라!!`)
-                    message.channel.send(embed)
+
+                message.channel.send(embed)
+                break;
             }
             default:
                 console.log('존재하지 않는 명령이에요!')
+                break;
         }
     }
 
